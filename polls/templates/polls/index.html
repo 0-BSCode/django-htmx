@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-    {% if latest_question_list %}
+    {% comment %} {% if latest_question_list %}
         <ul>
             {% for question in latest_question_list %}
                 <li>
@@ -16,10 +16,7 @@
         </ul>
     {% else %}
         <p>No polls available.</p>
-    {% endif %}
-    <button hx-post="/clicked" hx-swap="outerHTML">
-        Click Me
-      </button>
+    {% endif %} {% endcomment %}
       <button
   hx-get="https://v2.jokeapi.dev/joke/Any?format=txt&safe-mode&type=single"
   hx-target="#joke-container"
