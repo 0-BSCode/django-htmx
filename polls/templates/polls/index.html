@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'polls/header.html' %}
+{% block metadata %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'polls/style.css' %}">
-    <script src="https://unpkg.com/htmx.org@1.9.11" integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0" crossorigin="anonymous"></script>
     <title>Polls Home Page</title>
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
     {% if latest_question_list %}
         <ul>
             {% for question in latest_question_list %}
@@ -23,5 +20,12 @@
     <button hx-post="/clicked" hx-swap="outerHTML">
         Click Me
       </button>
-</body>
-</html>
+      <button
+  hx-get="https://v2.jokeapi.dev/joke/Any?format=txt&safe-mode&type=single"
+  hx-target="#joke-container"
+>
+  Make me laugh!
+</button>
+
+<p id="joke-container">Click the button to load a joke...</p>
+{% endblock %}

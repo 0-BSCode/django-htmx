@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'polls/header.html' %}
+{% comment %} TODO: Extend base template {% endcomment %}
+{% block metadata %}
     <title>Question Detail</title>
-</head>
-<body>
+{% endblock %}
+{% block content %}
     <h1>
         {{ question.question_text }}
     </h1>
@@ -20,5 +18,4 @@
     <a href="{% url 'polls:detail' question.id %}">
         Vote again?
     </a>
-</body>
-</html>
+{% endblock %}
