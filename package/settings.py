@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import mimetypes
+import os
 mimetypes.add_type("text/css", ".css", True)
 mimetypes.add_type("application/js", ".js", True)
 
@@ -122,12 +123,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_HOST = "https://django-htmx-two.vercel.app" if not DEBUG else ""
-STATIC_URL = STATIC_HOST + "/static/"
+STATIC_URL = "/static/"
 
-STATIC_ROOT = BASE_DIR / "static"
-STATICFILES_DIRS = [STATIC_HOST + "/static"]
+STATIC_ROOT = STATIC_HOST + "/staticfiles"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
