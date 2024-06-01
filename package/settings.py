@@ -125,7 +125,7 @@ STATIC_HOST = "https://django-htmx-two.vercel.app" if not DEBUG else ""
 STATIC_URL = STATIC_HOST + "/static/"
 
 STATIC_ROOT = BASE_DIR / "static"
-STATICFILES_DIRS = [STATIC_HOST / "static"]
+STATICFILES_DIRS = [STATIC_HOST + "/static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
