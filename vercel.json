@@ -6,6 +6,13 @@
         "config": {
           "runtime": "python3.9"
         }
+      },
+      {
+        "src": "build.sh",
+        "use": "@vercel/static-build",
+        "config": {
+            "distDir": "static"
+        }
       }
     ],
     "routes": [
